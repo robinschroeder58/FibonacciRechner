@@ -90,7 +90,33 @@ public class Main {
                 return ergebnisListe;
             }
 
+            // Methode zum Speichern der Fibonacci Zahlen in einer CSV-Datei
+            public static void speicherAlsCSV(List<Integer> ergebnisListe) {
 
+                try {
+                    FileWriter writer = new FileWriter("CSV_Test_File.csv");
 
-    }
-}
+                    //For Each
+            /*
+            for (Integer integer : ergebnisListe) {
+                writer.write(integer.toString());
+                writer.write(",");
+            }
+             */
+
+                    // oder for-Schleife
+                    for (int i = 0; i < ergebnisListe.size(); i++) {
+                        writer.write(ergebnisListe.get(i).toString());
+                        // zum Vermeiden des letzten Kommas
+                        if (i < ergebnisListe.size() - 1) {
+                            writer.write(",");
+                        }
+                    }
+                    writer.close();
+                    System.out.println("SCV Datei wurde erfolgreich gespeicher.");
+                } catch (IOException e) {
+                    System.out.println("Fehler beim Speichern der CSV-Datei.");
+                    e.printStackTrace();
+                }
+            }
+        }
