@@ -62,14 +62,33 @@ public class Main {
                 }
             }
 
-        System.out.println("Hello World!");
             // Methode zur Eingabevalidierung
             public static boolean eingabeIstGueltig(int eingabe) {
                 return eingabe > 0;
             }
 
+            // Fibonacci Berechnung
+            public static List<Integer> berechneFibonacci(int schritte) {
 
+                List<Integer> ergebnisListe = new ArrayList<>();
 
+                int zahl1 = 0;
+                int zahl2 = 1;
+                int zahl3;
+
+                for (int i = 1; i < schritte + 1; i++) {
+
+                    zahl3 = zahl1 + zahl2;
+
+                    System.out.println("Schrittnummer " + i + " : " + zahl1 + " + " + zahl2 + " = " + zahl3);
+
+                    zahl1 = zahl2;
+                    zahl2 = zahl3;
+
+                    ergebnisListe.add(zahl3);
+                }
+                return ergebnisListe;
+            }
 
 
 
